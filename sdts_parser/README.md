@@ -1,6 +1,5 @@
 # Syntax-Directed-Translation-Scheme-SDTS-
 
-# Syntax-Directed Translation Scheme (SDTS) Example
 
 This repository demonstrates **Syntax-Directed Translation Schemes (SDTS)** in C++ by evaluating **arithmetic expressions**.
 
