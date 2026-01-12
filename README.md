@@ -1,5 +1,4 @@
 # Compiler-Design-Assignment
-# Compiler Design Assignment
 
 This repository contains solutions for a Compiler Design assignment.
 
