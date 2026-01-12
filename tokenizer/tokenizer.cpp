@@ -1,19 +1,27 @@
-#ifndef TOKENIZER_H
-#define TOKENIZER_H
+#include "tokenizer.h"
+#include <cctype>
 
-#include <string>
-#include <vector>
+std::vector<Token> tokenize(const std::string& input) {
+    std::vector<Token> tokens;
 
-enum class TokenType {
-    NUMBER, PLUS, MINUS, MULTIPLY
-};
+    for (size_t i = 0; i < input.length(); i++) {
+        if (isspace(input[i])) continue;
 
-struct Token {
-    TokenType type;
-    std::string value;
-};
+        if (isdigit(input[i])) {
+            std::string num;
+            while (i < input.length() && isdigit(input[i]))
+                num += input[i++];
+            i--;
+            tokens.push_back({TokenType::NUMBER, num});
+        }
+        else if (input[i] == '+')
+            tokens.push_back({TokenType::PLUS, "+"});
+        else if (input[i] == '-')
+            tokens.push_back({TokenType::MINUS, "-"});
+        else if (input[i] == '*')
+            tokens.push_back({TokenType::MULTIPLY, "*"});
+    }
+    return tokens;
+}
 
-std::vector<Token> tokenize(const std::string& input);
-
-#endif
 
